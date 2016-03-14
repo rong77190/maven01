@@ -44,6 +44,32 @@
 
 
   <dependencies>
+    <!--mysql-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.12</version>
+    </dependency>
+    <!--fastjson-->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.8</version>
+    </dependency>
+    <!-- druid -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>1.0.18</version>
+    </dependency>
+    <!-- aspectjweaver -->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.8.7</version>
+    </dependency>
+
+
     <!--log4j的依赖-->
     <dependency>
       <groupId>log4j</groupId>
@@ -57,20 +83,24 @@
       <version>${junitversion}</version>
       <scope>test</scope>
     </dependency>
+    <!-- hibernate4 -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>4.1.7.Final</version>
+    </dependency>
     <!--structs2-->
     <dependency>
       <groupId>org.apache.struts</groupId>
       <artifactId>struts2-core</artifactId>
       <version>2.3.4.1</version>
       <!--这里还没跟hibernate整合，所以先注释-->
-      <!--
        <exclusions>
-        <exclusion>/
+        <exclusion>
           <groupId>javassist</groupId>
           <artifactId>javassist</artifactId>
         </exclusion>
       </exclusions>
-      -->
       <!--structs2 跟 spring的整合-->
     </dependency>
     <dependency>

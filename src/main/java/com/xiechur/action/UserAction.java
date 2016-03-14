@@ -28,20 +28,20 @@ import javax.servlet.ServletContext;
 public class UserAction {
     private static final Logger logger = Logger.getLogger(UserAction.class);
 
-    private UserServiceI userServiceI;
+    private UserServiceI userService;
 
-    public UserServiceI getUserServiceI() {
-        return userServiceI;
+    public UserServiceI getUserService() {
+        return userService;
     }
     @Autowired//自动注入
-    public void setUserServiceI(UserServiceI userServiceI) {
-        this.userServiceI = userServiceI;
+    public void setUserService(UserServiceI userService) {
+        this.userService = userService;
     }
 
     public void test(){
         logger.info("进入action");
 //        ApplicationContext ac = WebApplicationContextUtils.getWebApplicationContext(ServletActionContext.getServletContext());
 //        UserServiceI userServiceI = (UserServiceI) ac.getBean("userService");
-        userServiceI.test();
+        userService.test();
     }
 }
