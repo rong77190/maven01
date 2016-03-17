@@ -15,7 +15,7 @@ public class TestHibernate {
         ApplicationContext ac = new ClassPathXmlApplicationContext(new String[]{"classpath:spring.xml","classpath:spring-hibernate.xml"});
         UserServiceI userService = (UserServiceI)ac.getBean("userService");
         TUser t = new TUser();
-        t.setId(66);
+        t.setId(88);
 //        t.setId(UUID.randomUUID().toString());
         t.setUserName("lisi");
         t.setPassword("00000");

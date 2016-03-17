@@ -12,12 +12,12 @@ import org.apache.log4j.Logger;
  */
 public class TestHello {
 
-    private static final Logger logger = Logger.getLogger(UserServiceImpl.class);
-    @Test
-        public void test(){
-
-        ApplicationContext  appletContext = new ClassPathXmlApplicationContext(new String[]{"classpath:spring.xml"});
-        UserServiceI userServiceI = (UserServiceI) appletContext.getBean("userService");
-        userServiceI.test();
-    }
+//    private static final Logger logger = Logger.getLogger(UserServiceImpl.class);
+//    @Test
+//        public void test(){
+//
+//        ApplicationContext  appletContext = new ClassPathXmlApplicationContext(new String[]{"classpath:spring.xml"});
+//        UserServiceI userServiceI = (UserServiceI) appletContext.getBean("userService");
+//        userServiceI.test();
+//    }
 }
