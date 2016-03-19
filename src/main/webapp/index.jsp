@@ -25,24 +25,31 @@
                     text: '注册',
                     iconCls: 'icon-edit',
                     handler:function(){
-                        $('#index_regDialog').submit();
+                        $('#index_regForm').form('submit'
+                                ,{
+                            url: '/userAction!reg.action',
+                            success: function(data){
+                                console.info(data);
+//                                var obj = eval("("+data+") ");
+                                var obj = jQuery.parseJSON(data);//json大括号里面是双引号，不是单引号
+                                console.info(obj);
+                                if(obj.success){
+                                    $('#index_regDialog').dialog('close');
+                                }
+                                $.messager.show({
+                                    title:'提示',
+                                    msg:obj.msg,
+                                    timeout:5000,
+                                    showType:'slide'
+                                });
+                            }
+                        }
+                        );
                 }
             }  ]
         }).dialog('close');
 
         });
-//        $(function(){
-//            $('#index_regForm').form({
-//                url:' ',
-//                onSubmit: function(){
-//
-//                },
-//                success:function(data){
-//
-//                }
-//
-//            })
-//        });
     </script>
 </head>
 <body class="easyui-layout">
@@ -59,7 +66,9 @@
 				text:'注册',
 				iconCls:'icon-edit',
 				handler:function(){
-				    $('#index_regDialog').dialog('open');
+				    <%--$('#index_regForm').form('load',{name:'',pwd:'',rePwd:''});--%>
+                    $('#index_regForm input').val('');
+                    $('#index_regDialog').dialog('open');
 				}
 			},{
 				text:'登录',
@@ -75,28 +84,31 @@
                 </tr>
 
                 <tr>
-                    <th>密码:</th>
+                    <th>密&nbsp;码:</th>
                     <td><input type="password" /></td>
                 </tr>
              </table>
     </div>
 
     <div id="index_regDialog">
+        <form id="index_regForm">
             <table>
                 <tr>
                     <th>登录名:</th>
-                    <td><input type="text" class="easyui-validatebox" data-options="required:true,missingMessage:'登录名必填' "/></td>
+                    <td><input name = "name" type="text" class="easyui-validatebox" data-options="required:true,missingMessage:'登录名必填' "/></td>
                 </tr>
 
                 <tr>
                     <th>密码:</th>
-                    <td><input type="password" class="easyui-validatebox" data-options="required:true"/></td>
+                    <td><input name = "pwd" type="password" class="easyui-validatebox" data-options="required:true"/></td>
                 </tr>
                 <tr>
                     <th>重复密码:</th>
-                    <td><input type="password" class="easyui-validatebox" data-options="required:true"/></td>
+                        <td><input name = "rePwd"type="password" class="easyui-validatebox" data-options="required:true,
+                                    validType:'eqPwd[\'#index_regForm input[name=pwd]\']' "/></td>
                 </tr>
             </table>
+        </form>
     </div>
     <h2>Hello World!</h2>
 

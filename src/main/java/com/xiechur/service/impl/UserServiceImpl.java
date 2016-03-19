@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 import java.sql.Savepoint;
+import java.util.UUID;
 
 
 /**
@@ -36,6 +37,15 @@ public class UserServiceImpl implements UserServiceI {
     @Override
     public Serializable save(TUser t) {
             return userDao.save(t);
+    }
+
+    @Override
+    public void save(String name, String pwd) {
+        TUser t = new TUser();
+        t.setId((int) System.currentTimeMillis());
+        t.setUserName(name);
+        t.setPassword(pwd);
+        userDao.save(t);
     }
 
 
