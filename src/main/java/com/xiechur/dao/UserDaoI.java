@@ -7,7 +7,6 @@ import java.io.Serializable;
 /**
  * Created by dell on 2016/3/14.
  */
-public interface UserDaoI {
-    public Serializable save(TUser t);
+public interface UserDaoI extends BaseDaoI<TUser> {
 }
 

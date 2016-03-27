@@ -12,20 +12,6 @@ import java.io.Serializable;
  * Created by dell on 2016/3/14.
  */
 @Repository("userDao")
-public class UserDaoImpl implements UserDaoI {
-    public SessionFactory sessionFactory;
-    public SessionFactory getSessionFactory() {
-        return sessionFactory;
-    }
-    @Autowired
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
+public class UserDaoImpl extends BaseDaoImpl<TUser> implements UserDaoI {
 
-
-
-    @Override
-    public Serializable save(TUser t) {
-        return this.getSessionFactory().getCurrentSession().save(t);
-    }
 }
