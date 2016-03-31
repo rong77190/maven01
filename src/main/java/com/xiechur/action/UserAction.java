@@ -1,6 +1,8 @@
 package com.xiechur.action;
 
+import com.alibaba.fastjson.JSON;
 import com.opensymphony.xwork2.ModelDriven;
+import com.xiechur.pageModel.Json;
 import com.xiechur.pageModel.User;
 import com.xiechur.service.UserServiceI;
 import org.apache.log4j.Logger;
@@ -26,7 +28,7 @@ import java.util.Map;
 @Namespace("/")
 @Action(value = "userAction")//现在会被spring管理因为有了org.apache.struts:struts2-spring-plugin:2.3.4.1的这个包，不用在spring.xml中扫描了
 
-public class UserAction extends BaseAction implements ModelDriven<User> {
+public class UserAction extends BaseAction implements ModelDriven<User> {//模型驱动
 
     private static final Logger logger = Logger.getLogger(UserAction.class);
 
@@ -34,7 +36,7 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
          private UserServiceI userService;
 
 //     private String name;
-//     private String pwd;
+//     private String password;//还不是最好的方法，--->ModelDriven
 //
 //         public String getName() {
 //             return name;
@@ -44,12 +46,12 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
 //             this.name = name;
 //         }
 //
-//         public String getPwd() {
-//             return pwd;
+//         public String getPassword() {
+//             return password;
 //         }
 //
-//         public void setPwd(String pwd) {
-//             this.pwd = pwd;
+//         public void setPassword(String password) {
+//             this.password = password;
 //         }
 
          @Override
@@ -73,21 +75,26 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
     }
 
          public void reg() throws IOException {
-//        String name = ServletActionContext.getRequest().getParameter("name");
-//        String pwd = ServletActionContext.getRequest().getParameter("pwd");
-             Map<String, Object> map = new HashMap<String, Object>();
+//        String name = ServletActionContext.getRequest().getParameter("name");//换成get  set 方法
+//        String pwd = ServletActionContext.getRequest().getParameter("password");
+//             Map<String, Object> map = new HashMap<String, Object>();
+             Json json = new Json();
 
         try {
-            userService.save(user.getName(), user.getPwd());
-            map.put("success", true);
-            map.put("msg", "注册成功");
+            userService.save(user);//模型中获得
+//            map.put("success", true);
+//            map.put("msg", "注册成功");
+            json.setSuccess(true);
+            json.setMsg("注册成功");
         } catch (Exception e) {
-            e.printStackTrace();
-            map.put("success", false);
-            map.put("msg", "注册失败");
-
+//            e.printStackTrace();
+//            map.put("success", false);
+//            map.put("msg", "注册失败");
+//            map.put("msg",e.getMessage());
+            json.setMsg(e.getMessage());
         }
-             super.writeJson(map);
+//             super.writeJson(map);
+             super.writeJson(json);
          }
 //        String json = null;
 //        try {
@@ -121,5 +128,16 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
 //        super.writeJson(j);
 //    }
 
+         public void login() throws IOException {
+             User u = userService.login(user);
+             Json json = new Json();
+             if (u != null) {
+                 json.setSuccess(true);
+                 json.setMsg("登陆成功");
+             } else {
+                 json.setMsg("登陆失败，登录名或密码错误");
+             }
+             super.writeJson(json);
+         }
 
      }

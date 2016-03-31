@@ -1,6 +1,7 @@
 package com.xiechur.service;
 
 import com.xiechur.model.TUser;
+import com.xiechur.pageModel.User;
 
 import java.io.Serializable;
 
@@ -11,5 +12,10 @@ public interface UserServiceI {
     public void test();
     public Serializable save(TUser t);
 
-    public   void save(String name, String pwd);
+    //    public   void save(String name, String pwd);
+    public void save(User user);
+
+    public User login(User user);
+
 }
+

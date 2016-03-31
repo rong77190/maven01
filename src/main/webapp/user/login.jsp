@@ -6,11 +6,38 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+<script type="text/javascript">
+    $(function () {
+        $('#user_login_loginForm').form({
+            url: '<%=request.getContextPath()%>/userAction!login.action',
+            success: function (data) {
+                <%--console.info(data);--%>
+                <%--var obj = eval("("+data+") ");--%>
+                var obj = jQuery.parseJSON(data);//json大括号里面是双引号，不是单引号
+                <%--console.info(obj);--%>
+                if (obj.success) {
+                    $('#user_login_loginDialog').dialog('close');
+                }
+                $.messager.show({
+                    title: '提示',
+                    msg: obj.msg,
+                    timeout: 5000,
+                    showType: 'slide'
+                });
+                <%--$.messager.show({--%>
+                <%--title : '提示',--%>
+                <%--msg : obj.msg--%>
+                <%--});--%>
+            }
+        });
+
+        $('#user_login_loginForm input').bind('keyup', function (event) {/* 增加回车提交功能 */
+            if (event.keyCode == '13') {
+                $('#user_login_loginForm').submit();
+            }
+        });
+    });
+</script>
 <div id="user_login_loginDialog" class="easyui-dialog" data-options="title: '登录',modal:true,closable:false,buttons:[{
                   text:'注册',
                   iconCls:'icon-edit',
@@ -24,7 +51,7 @@
                   text:'登录',
                   iconCls:'icon-help',
                   handler:function(){
-
+                        $('#user_login_loginForm').submit();
                   }
               }]">
     <form id="user_login_loginForm" method="post">
@@ -43,5 +70,3 @@
         </table>
     </form>
 </div>
-</body>
-</html>

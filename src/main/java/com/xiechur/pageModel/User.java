@@ -11,6 +11,30 @@ public class User implements Serializable {
     private String name;
     private String pwd;
 
+    public User() {
+        super();
+    }
+
+    public User(String name, String pwd) {
+        this.name = name;
+        this.pwd = pwd;
+    }
+
+    public User(String name, String pwd, int id) {
+        this.name = name;
+        this.pwd = pwd;
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", pwd='" + pwd + '\'' +
+                '}';
+    }
+
     public int getId() {
         return id;
     }
