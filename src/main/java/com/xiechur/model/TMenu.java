@@ -1,16 +1,13 @@
 package com.xiechur.model;
 
-import com.sun.org.apache.xml.internal.utils.SerializableLocatorImpl;
-
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * Created by dell on 2016/4/4.
  */
 @Entity
-@Table(name = "t_memu", schema = "", catalog = "db_jsp01")
-public class TMemu implements Serializable {
+@Table(name = "t_menu", schema = "", catalog = "db_jsp01")
+public class TMenu {
     private int id;
     private String text;
     private String iconcls;
@@ -61,12 +58,12 @@ public class TMemu implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        TMemu tMemu = (TMemu) o;
+        TMenu tMenu = (TMenu) o;
 
-        if (id != tMemu.id) return false;
-        if (iconcls != null ? !iconcls.equals(tMemu.iconcls) : tMemu.iconcls != null) return false;
-        if (text != null ? !text.equals(tMemu.text) : tMemu.text != null) return false;
-        if (url != null ? !url.equals(tMemu.url) : tMemu.url != null) return false;
+        if (id != tMenu.id) return false;
+        if (iconcls != null ? !iconcls.equals(tMenu.iconcls) : tMenu.iconcls != null) return false;
+        if (text != null ? !text.equals(tMenu.text) : tMenu.text != null) return false;
+        if (url != null ? !url.equals(tMenu.url) : tMenu.url != null) return false;
 
         return true;
     }

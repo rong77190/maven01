@@ -8,6 +8,7 @@
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <mapping class="com.xiechur.model.TMemu"/>
         <mapping class="com.xiechur.model.TUser"/>
+        <mapping class="com.xiechur.model.TMenu"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>
