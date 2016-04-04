@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserServiceI {
     public void save(User user) {
         TUser t = new TUser();
         t.setUserName(user.getName());
-        t.setPassword(user.getPwd());
+//        t.setPassword(user.getPwd());
         t.setPassword(Encrypt.e(user.getPwd()));//加密
 //        BeanUtils.copyProperties(user, t , new String[] { "pwd" });
 // 相等名的copy,但是我手残写的User中的name,pwd跟Tuser中username，password名字不一样这里就不可以弄进去了
@@ -61,8 +61,13 @@ public class UserServiceImpl implements UserServiceI {
 
     @Override
     public User login(User user) {
-        TUser t = userDao.get("from Tuser t  where t.userName=' " + user.getName() + " 'and t.password=' " + Encrypt.e(user.getPwd()) + " ' ");
-
+//        TUser t = userDao.get("from Tuser t where t.name='" + user.getName() + "' and t.pwd = '" + Encrypt.e(user.getPwd()) + "'");
+//        TUser t = userDao.get("from Tuser t where t.name = ? and t.pwd = ?", new Object[] { user.getName(), Encrypt.e(user.getPwd())});
+        Map<String, Object> params = new HashMap<String, Object>();
+//        TUser t = userDao.get("from TUser t  where t.userName=' " + user.getName() + " 'and t.password=' " + Encrypt.e(user.getPwd()) + " '");
+        params.put("userName", user.getName());
+        params.put("password", Encrypt.e(user.getPwd()));
+        TUser t = userDao.get("from TUser t where t.userName = :userName and t.password = :password", params);//不用按顺序传参
         if (t != null)
             return user;
         return null;

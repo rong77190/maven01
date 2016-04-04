@@ -3,8 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.xiechur</groupId>
   <artifactId>maven01</artifactId>
-  <packaging>war</packaging>
+  <packaging>pom</packaging>
   <version>0.0.1-SNAPSHOT</version>
+  <modules>
+    <module>../hibernate01</module>
+  </modules>
   <name>tan.maven.springmvc Maven Webapp</name>
   <url>http://maven.apache.org</url>
 

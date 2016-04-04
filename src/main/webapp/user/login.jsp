@@ -36,6 +36,9 @@
                 $('#user_login_loginForm').submit();
             }
         });
+        window.setTimeout(function () {
+            $('#user_login_loginForm input[name=name]').focus();
+        }, 0);
     });
 </script>
 <div id="user_login_loginDialog" class="easyui-dialog" data-options="title: '登录',modal:true,closable:false,buttons:[{
