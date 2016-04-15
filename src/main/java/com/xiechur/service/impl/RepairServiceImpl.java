@@ -12,37 +12,37 @@
 //import org.springframework.stereotype.Service;
 //
 //import com.xiechur.dao.BaseDaoI;
-//import com.xiechur.model.Tmenu;
-//import com.xiechur.model.Tuser;
+//import com.xiechur.model.TMenu;
+//import com.xiechur.model.TUser;
 //import com.xiechur.service.RepairServiceI;
 //import com.xiechur.util.Encrypt;
 //
 //@Service("repairService")
 //public class RepairServiceImpl implements RepairServiceI {
 //
-//    private BaseDaoI<Tmenu> menuDao;
-//    private BaseDaoI<Tuser> userDao;
+//    private BaseDaoI<TMenu> menuDao;
+//    private BaseDaoI<TUser> userDao;
 //
-//    public BaseDaoI<Tuser> getUserDao() {
+//    public BaseDaoI<TUser> geTUserDao() {
 //        return userDao;
 //    }
 //
 //    @Autowired
-//    public void setUserDao(BaseDaoI<Tuser> userDao) {
+//    public void seTUserDao(BaseDaoI<TUser> userDao) {
 //        this.userDao = userDao;
 //    }
 //
-//    public BaseDaoI<Tmenu> getMenuDao() {
+//    public BaseDaoI<TMenu> geTMenuDao() {
 //        return menuDao;
 //    }
 //
 //    @Autowired
-//    public void setMenuDao(BaseDaoI<Tmenu> menuDao) {
+//    public void seTMenuDao(BaseDaoI<TMenu> menuDao) {
 //        this.menuDao = menuDao;
 //    }
 //
 //    @Override
-//    com.xiechurnchronized public void repair() {
+//    public void repair() {
 //
 //        repairUser();
 //
@@ -51,47 +51,47 @@
 //    }
 //
 //    private void repairMenu() {
-//        Tmenu root = new Tmenu();
-//        root.setId("0");
+//        TMenu root = new TMenu();
+//        root.setId(0);
 //        root.setText("首页");
 //        root.setUrl("");
 //        menuDao.saveOrUpdate(root);
 //
-//        Tmenu xtgl = new Tmenu();
-//        xtgl.setId("xtgl");
-//        xtgl.setTmenu(root);
+//        TMenu xtgl = new TMenu();
+//        xtgl.setId(1);
+//        xtgl.settMenu(root);
 //        xtgl.setText("系统管理");
 //        xtgl.setUrl("");
 //        menuDao.saveOrUpdate(xtgl);
 //
-//        Tmenu yhgl = new Tmenu();
-//        yhgl.setId("yhgl");
-//        yhgl.setTmenu(xtgl);
+//        TMenu yhgl = new TMenu();
+//        yhgl.setId(2);
+//        yhgl.settMenu(xtgl);
 //        yhgl.setText("用户管理");
 //        yhgl.setUrl("/admin/yhgl.jsp");
 //        menuDao.saveOrUpdate(yhgl);
 //
-//        Tmenu jsgl = new Tmenu();
-//        jsgl.setId("jsgl");
-//        jsgl.setTmenu(xtgl);
+//        TMenu jsgl = new TMenu();
+//        jsgl.setId(3);
+//        jsgl.settMenu(xtgl);
 //        jsgl.setText("角色管理");
 //        menuDao.saveOrUpdate(jsgl);
 //
-//        Tmenu qxgl = new Tmenu();
-//        qxgl.setId("qxgl");
-//        qxgl.setTmenu(xtgl);
+//        TMenu qxgl = new TMenu();
+//        qxgl.setId(4);
+//        qxgl.settMenu(xtgl);
 //        qxgl.setText("权限管理");
 //        menuDao.saveOrUpdate(qxgl);
 //
-//        Tmenu cdgl = new Tmenu();
-//        cdgl.setId("cdgl");
-//        cdgl.setTmenu(xtgl);
+//        TMenu cdgl = new TMenu();
+//        cdgl.setId(5);
+//        cdgl.settMenu(xtgl);
 //        cdgl.setText("菜单管理");
 //        menuDao.saveOrUpdate(cdgl);
 //
-//        Tmenu buggl = new Tmenu();
-//        buggl.setId("buggl");
-//        buggl.setTmenu(xtgl);
+//        TMenu buggl = new TMenu();
+//        buggl.setId(6);
+//        buggl.settMenu(xtgl);
 //        buggl.setText("BUG管理");
 //        menuDao.saveOrUpdate(buggl);
 //    }
@@ -99,16 +99,16 @@
 //    private void repairUser() {
 //        Map<String, Object> m = new HashMap<String, Object>();
 //        m.put("name", "admin");
-//        Tuser t = userDao.get("from Tuser t where t.name = :name and t.id != '0'", m);
+//        TUser t = userDao.get("from TUser t where t.name = :name and t.id != '0'", m);
 //        if (t != null) {
-//            t.setName(UUID.randomUUID().toString());
+//            t.setUserName(UUID.randomUUID().toString());
 //        }
 //
-//        Tuser admin = new Tuser();
+//        TUser admin = new TUser();
 //        admin.setId("0");
-//        admin.setName("admin");
-//        admin.setPwd(Encrypt.e("admin"));
-//        admin.setModifydatetime(new Date());
+//        admin.setUserName("admin");
+//        admin.setPassword(Encrypt.e("admin"));
+//        admin.setModifyDate(new Date());
 //        userDao.saveOrUpdate(admin);
 //    }
 //
