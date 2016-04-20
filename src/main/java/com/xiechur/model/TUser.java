@@ -1,7 +1,7 @@
 package com.xiechur.model;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by dell on 2016/4/4.

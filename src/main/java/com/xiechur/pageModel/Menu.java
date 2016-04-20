@@ -8,9 +8,10 @@ import java.util.Map;
 public class Menu {
 
     private String state;
-    private String pid;
+    private int pid;
     private String ptext;
     private Map<String, Object> attributes;
+
     private int id;
     private String text;
     private String iconcls;
@@ -32,11 +33,11 @@ public class Menu {
         this.attributes = attributes;
     }
 
-    public String getPid() {
+    public int getPid() {
         return pid;
     }
 
-    public void setPid(String pid) {
+    public void setPid(int pid) {
         this.pid = pid;
     }
 
