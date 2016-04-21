@@ -1,25 +1,12 @@
 package com.xiechur.listener;
 
-import javax.servlet.ServletContextAttributeEvent;
-import javax.servlet.ServletContextAttributeListener;
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-import javax.servlet.ServletRequestAttributeEvent;
-import javax.servlet.ServletRequestAttributeListener;
-import javax.servlet.ServletRequestEvent;
-import javax.servlet.ServletRequestListener;
-import javax.servlet.http.HttpSessionActivationListener;
-import javax.servlet.http.HttpSessionAttributeListener;
-import javax.servlet.http.HttpSessionBindingEvent;
-import javax.servlet.http.HttpSessionBindingListener;
-import javax.servlet.http.HttpSessionEvent;
-import javax.servlet.http.HttpSessionListener;
-
+import com.xiechur.service.RepairServiceI;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.xiechur.service.RepairServiceI;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
 /**
  * 在系统启动时，修复数据库
@@ -30,7 +17,7 @@ import com.xiechur.service.RepairServiceI;
 public class RepairListener implements ServletContextListener, ServletContextAttributeListener, HttpSessionListener, HttpSessionAttributeListener, HttpSessionActivationListener, HttpSessionBindingListener, ServletRequestListener, ServletRequestAttributeListener {
     private static final Logger logger = Logger.getLogger(RepairListener.class);
 
-    private static ApplicationContext ctx = null;
+    private static ApplicationContext applicationContext = null;
 
     public RepairListener() {
     }
@@ -43,8 +30,8 @@ public class RepairListener implements ServletContextListener, ServletContextAtt
 
     public void contextInitialized(ServletContextEvent evt) {
         logger.info("修复数据库");
-        ctx = WebApplicationContextUtils.getWebApplicationContext(evt.getServletContext());
-        RepairServiceI repairService = (RepairServiceI) ctx.getBean("repairService");
+        applicationContext = WebApplicationContextUtils.getWebApplicationContext(evt.getServletContext());
+        RepairServiceI repairService = (RepairServiceI) applicationContext.getBean("repairService");
         repairService.repair();
     }
 

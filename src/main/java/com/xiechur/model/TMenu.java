@@ -1,7 +1,5 @@
 package com.xiechur.model;
 
-import javafx.scene.control.cell.PropertyValueFactory;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,8 +18,20 @@ public class TMenu {
     private String url;
     private Set<TMenu> tmenus = new HashSet<TMenu>(0);
 
+    public TMenu(TMenu tMenu, int id, String text, String iconcls, String url, Set<TMenu> tmenus) {
+        this.tMenu = tMenu;
+        this.id = id;
+        this.text = text;
+        this.iconcls = iconcls;
+        this.url = url;
+        this.tmenus = tmenus;
+    }
+
+    public TMenu() {
+    }
+
     @Id
-    @Column(name = "id")
+    @Column(name = "id", unique = true)
     public int getId() {
         return id;
     }

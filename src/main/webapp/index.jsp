@@ -80,7 +80,7 @@
     north
 </div>
     <div data-options="region:'south',title:'左',split:true" style="height:100px;">south</div>
-<div data-options="region:'west',title:'West Title', split:true" style="width:200px;">
+<div data-options="region:'west'" style="width:200px;">
     <jsp:include page="layout/left.jsp"></jsp:include>
 </div>
 <div data-options="region:'center',title:'center title'" style="padding:5px;background:#eee;">

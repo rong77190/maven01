@@ -15,6 +15,7 @@ public class TUser {
     private Date createDate;
     private Date modifyDate;
 
+
     @Basic
     @Column(name = "createDate")
     public Date getCreateDate() {
