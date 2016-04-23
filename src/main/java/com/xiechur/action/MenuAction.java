@@ -32,11 +32,14 @@ public class MenuAction extends BaseAction implements ModelDriven<Menu> {
         return menu;
     }
 
+
+    /**
+     * 异步获取树节点
+     */
     public void getTreeNode() {
         logger.info(menu.getId());
         super.writeJson(menuServiceI.getTreeNode(menu.getId()));
     }
-
     public void getAllTreeNode() {
         super.writeJson(menuService.getAllTreeNode());
     }

@@ -8,7 +8,6 @@ import java.util.List;
  * Created by dell on 2016/4/4.
  */
 public interface MenuServiceI {
-    public List<Menu> getTree(int id);
 
     public List<Menu> getTreeNode(int id);
 

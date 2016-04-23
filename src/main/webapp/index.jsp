@@ -83,7 +83,7 @@
 <div data-options="region:'west'" style="width:200px;">
     <jsp:include page="layout/left.jsp"></jsp:include>
 </div>
-<div data-options="region:'center',title:'center title'" style="padding:5px;background:#eee;">
+<div data-options="region:'center',title:'欢迎使用本系统' ">
     <jsp:include page="layout/center.jsp"></jsp:include>
 </div>
 
