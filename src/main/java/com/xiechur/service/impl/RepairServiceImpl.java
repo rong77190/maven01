@@ -84,11 +84,6 @@ public class RepairServiceImpl implements RepairServiceI {
         cdgl.setText("菜单管理");
         menuDao.saveOrUpdate(cdgl);
 
-        TMenu buggl = new TMenu();
-        buggl.setId(6);
-        buggl.settMenu(xtgl);
-        buggl.setText("BUG管理");
-        menuDao.saveOrUpdate(buggl);
     }
 
     private void repairUser() {
