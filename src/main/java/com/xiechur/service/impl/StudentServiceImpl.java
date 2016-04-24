@@ -14,7 +14,7 @@ public class StudentServiceImpl implements StudentServiceI {
 
     @Override
     public List<Student> getAllStudent() {
-
+        //return studentDaoI.getAllStudent();
         return null;
     }
 }
