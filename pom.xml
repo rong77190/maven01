@@ -7,15 +7,11 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>tan.maven.springmvc Maven Webapp</name>
   <url>http://maven.apache.org</url>
-
-
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <springversion>4.2.5.RELEASE</springversion>
     <junitversion>4.11</junitversion>
   </properties>
-
 
   <!-- 指定Maven仓库 -->
   <repositories>
@@ -41,7 +37,6 @@
       <layout>default</layout>
     </repository>
   </repositories>
-
 
   <dependencies>
     <!--mysql-->

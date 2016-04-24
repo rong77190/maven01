@@ -11,7 +11,6 @@ import javax.servlet.http.*;
 /**
  * 在系统启动时，修复数据库
  *
- * @author 孙宇
  *
  */
 public class RepairListener implements ServletContextListener, ServletContextAttributeListener, HttpSessionListener, HttpSessionAttributeListener, HttpSessionActivationListener, HttpSessionBindingListener, ServletRequestListener, ServletRequestAttributeListener {

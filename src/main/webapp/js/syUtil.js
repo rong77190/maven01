@@ -1,5 +1,4 @@
 /**
- * @author
  *
  * @requires jQuery,EasyUI
  *
@@ -42,13 +41,9 @@ $.fn.tree.defaults.loadFilter = function(data, parent) {
 };
 
 /**
- * @author 孙宇
- * 
- * @requires jQuery,EasyUI
  * 
  * 防止panel/window/dialog组件超出浏览器边界
- * @param left
- * @param top
+ *
  */
 var easyuiPanelOnMove = function(left, top) {
 	var l = left;
