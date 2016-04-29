@@ -5,6 +5,9 @@
   <artifactId>maven01</artifactId>
   <packaging>pom</packaging>
   <version>0.0.1-SNAPSHOT</version>
+  <modules>
+    <module>../mybatis01</module>
+  </modules>
   <name>tan.maven.springmvc Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <properties>

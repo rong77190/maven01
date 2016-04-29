@@ -1,20 +1,16 @@
 package com.xiechur.action;
 
-import com.alibaba.fastjson.JSON;
 import com.opensymphony.xwork2.ModelDriven;
 import com.xiechur.pageModel.Json;
 import com.xiechur.pageModel.User;
 import com.xiechur.service.UserServiceI;
 import org.apache.log4j.Logger;
-import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 
      /**
@@ -139,5 +135,4 @@ public class UserAction extends BaseAction implements ModelDriven<User> {//æ¨¡åž
              }
              super.writeJson(json);
          }
-
      }

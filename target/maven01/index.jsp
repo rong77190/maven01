@@ -19,6 +19,8 @@
     <script type="text/javascript">
         $(function () {
         });
+
+
         <%--$('#index_regDialog').dialog({--%>
         <%--title:'注册',--%>
         <%--modal:true,--%>
