@@ -1,11 +1,4 @@
-import com.xiechur.service.UserServiceI;
-import com.xiechur.service.impl.UserServiceImpl;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-
-import org.apache.log4j.Logger;
 
 /**
  * Created by dell on 2016/3/14.
@@ -20,4 +13,9 @@ public class TestHello {
 //        UserServiceI userServiceI = (UserServiceI) appletContext.getBean("userService");
 //        userServiceI.test();
 //    }
+@Test
+public void test01() {
+
 }
+}
+
